@@ -73,7 +73,7 @@ rm -rf $HCBuildDir/temp
 xcodebuild \
 -workspace $HCWorkspace/$HCProjectName.xcodeproj/project.xcworkspace \
 -scheme $HCTestScheme \
--sdk "iphonesimulator" \
+-sdk iphoneos \
 -configuration "Debug" \
 -destination platform='iOS Simulator',OS=9.3,name='iPhone 6 Plus'
 
@@ -81,12 +81,11 @@ array=( TestDemoTests )
 
 for data in ${array[@]}
 do 
-        xcodebuild  -reporter pretty \
-        -reporter junit:tmp/test-report-tmp.xml \
+        xcodebuild  \
         -workspace $HCWorkspace/$HCProjectName.xcodeproj/project.xcworkspace \
-        -scheme $HCScheme \
-        run-tests -only $HCScheme:${data} \
-        -sdk "iphonesimulator" \
+        -scheme $HCTestScheme \
+        run-tests -only $HCTestScheme:"TestDemoTests"\
+        -sdk iphoneos \
         -configuration "Debug" \
         -destination platform='iOS Simulator',OS=9.3,name='iPhone 6 Plus'
 done
