@@ -21,11 +21,11 @@ git checkout $HCBranchName								#切分支
 cd ..												#回到项目根目录
 HCProjectDir=`pwd`						            #项目路径
 HCDate=`date +%Y%m%d_%H%M%S` 								#日期
-HCWorkspace=$HCProjectDir/TestDemo						#Workspace路径
+HCWorkspace=$HCProjectDir/TestDemo1						#Workspace路径
 HCWorkspaceFile="$HCWorkspace/$HCProjectName.xcodeproj/project.xcworkspace"
 echo "workspace=$HCWorkspace-----------------------"
 cd ..												#回到项目根目录上一级
-HCBuildDir=`pwd`/HCMedical_build			 				#build路径
+HCBuildDir=`pwd`/HCTestDemo_build			 				#build路径
 HCBuildTempDir="$HCBuildDir/temp/$HCBranchName/$HCDate"	  #构建过程中的文件
 HCIpaDir="$HCBuildDir/ipa/$HCProjectName-$HCBranchName-$HCDate"	#生成ipa文件路径
 HCArchivePath="$HCBuildTempDir/${HCProjectName}.xcarchive"  
