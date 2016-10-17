@@ -8,7 +8,7 @@ HCScheme="TestDemo"
 HCBranchName="master"
 HCCodeSignIdentity="iPhone Developer: nannan ji (8W2YJ2NKMC)"
 HCProvisioningProFile="af34fd65-a148-43d7-821c-0bc0404e19bd"
-HCConfiguration="Debug"
+HCConfiguration="Release"
 #*****--------------------
 
 
@@ -44,7 +44,7 @@ mkdir -p $HCIpaDir
 xcodebuild \
 -workspace $HCWorkspace/$HCProjectName.xcodeproj/project.xcworkspace \
 -scheme $HCScheme \
--configuration "Debug" \
+-configuration "Release" \
 CODE_SIGN_IDENTITY="$HCCodeSignIdentity"  \
 PROVISIONING_PROFILE="$HCProvisioningProFile" \
 clean \
