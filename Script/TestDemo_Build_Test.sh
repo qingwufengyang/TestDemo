@@ -82,8 +82,8 @@ for data in ${array}
 do 
         xctool  \
         -workspace $HCWorkspace/$HCProjectName.xcodeproj/project.xcworkspace \
-        -scheme $HCScheme \
-        run-tests -only $HCScheme:${data}\
+        -scheme $HCTestScheme \
+        run-tests -only $HCTestScheme:${data}\
         -sdk iphonesimulator \
         -configuration "Debug" \
         -destination platform='iOS Simulator',OS=9.3,name='iPhone 6'
