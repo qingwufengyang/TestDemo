@@ -5,7 +5,7 @@
 #***********配置项
 HCProjectName="TestDemo"			
 HCScheme="TestDemo"
-HCTestScheme = "TestDemoTests"
+HCTestScheme="TestDemoTests"
 HCBranchName="master"
 HCCodeSignIdentity="iPhone Developer: nannan ji (8W2YJ2NKMC)"
 HCProvisioningProFile="af34fd65-a148-43d7-821c-0bc0404e19bd"
@@ -14,15 +14,15 @@ HCConfiguration="Release"
 
 
 #拉代码
-git reset --hard 										#清除未提交的改变
-git pull origin $HCBranchName							#拉代码
-git checkout $HCBranchName								#切分支
+# git reset --hard 										#清除未提交的改变
+# git pull origin $HCBranchName							#拉代码
+# git checkout $HCBranchName								#切分支
 
 
 cd ..												#回到项目根目录
 HCProjectDir=`pwd`						            #项目路径
 HCDate=`date +%Y%m%d_%H%M%S` 								#日期
-HCWorkspace=$HCProjectDir/TestDemo1						#Workspace路径
+HCWorkspace=$HCProjectDir					#Workspace路径
 HCWorkspaceFile="$HCWorkspace/$HCProjectName.xcodeproj/project.xcworkspace"
 echo "workspace=$HCWorkspace-----------------------"
 cd ..												#回到项目根目录上一级
@@ -73,21 +73,18 @@ rm -rf $HCBuildDir/temp
 xctool build-tests \
 -workspace $HCWorkspace/$HCProjectName.xcodeproj/project.xcworkspace \
 -scheme $HCTestScheme \
-# -sdk iphonesimulator \
--configuration "Debug" \
--destination platform='iOS Simulator',OS=9.3,name='iPhone 6 Plus'
 
 array=( TestDemoTests )
 
-for data in ${array[@]}
+for data in ${array}
 do 
-        xctool  -reporter pretty -reporter junit:tmp/test-report-tmp.xml \
+        xctool  \
         -workspace $HCWorkspace/$HCProjectName.xcodeproj/project.xcworkspace \
         -scheme $HCTestScheme \
-        run-tests -only $HCTestScheme:"TestDemoTests"\
-        # -sdk iphonesimulator \
+        run-tests -only $HCTestScheme:${data}\
+        -sdk iphonesimulator \
         -configuration "Debug" \
-        -destination platform='iOS Simulator',OS=9.3,name='iPhone 6 Plus'
+        -destination platform='iOS Simulator',OS=9.3,name='iPhone 6'
 done
 
 
