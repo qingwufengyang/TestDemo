@@ -74,7 +74,7 @@ echo "$HCTestScheme---------------------"
 # 单元测试
 xctool build-tests \
 -workspace $HCWorkspace/$HCProjectName.xcodeproj/project.xcworkspace \
--scheme $HCScheme \
+-scheme $HCTestScheme \
 
 array=( TestDemoTests )
 
