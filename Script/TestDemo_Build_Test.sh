@@ -69,6 +69,8 @@ mkdir -p $HCIpaDir
 #清除构建的临时文件
 rm -rf $HCBuildDir/temp
 
+echo "$HCTestScheme---------------------"
+
 # 单元测试
 xctool build-tests \
 -workspace $HCWorkspace/$HCProjectName.xcodeproj/project.xcworkspace \
