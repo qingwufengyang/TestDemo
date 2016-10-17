@@ -70,10 +70,10 @@ xcrun -sdk iphoneos \
 rm -rf $HCBuildDir/temp
 
 # 单元测试
-xcodebuild \
+xctool build-tests \
 -workspace $HCWorkspace/$HCProjectName.xcodeproj/project.xcworkspace \
 -scheme $HCTestScheme \
--sdk iphonesimulator \
+-sdk iphoneos \
 -configuration "Debug" \
 -destination platform='iOS Simulator',OS=9.3,name='iPhone 6 Plus'
 
@@ -81,11 +81,11 @@ array=( TestDemoTests )
 
 for data in ${array[@]}
 do 
-        xcodebuild  \
+        xctool  \
         -workspace $HCWorkspace/$HCProjectName.xcodeproj/project.xcworkspace \
         -scheme $HCTestScheme \
         run-tests -only $HCTestScheme:"TestDemoTests"\
-        -sdk iphonesimulator \
+        -sdk iphoneos \
         -configuration "Debug" \
         -destination platform='iOS Simulator',OS=9.3,name='iPhone 6 Plus'
 done
