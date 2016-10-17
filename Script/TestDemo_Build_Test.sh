@@ -5,6 +5,7 @@
 #***********配置项
 HCProjectName="TestDemo"			
 HCScheme="TestDemo"
+HCTestScheme = "TestDemoTests"
 HCBranchName="master"
 HCCodeSignIdentity="iPhone Developer: nannan ji (8W2YJ2NKMC)"
 HCProvisioningProFile="af34fd65-a148-43d7-821c-0bc0404e19bd"
@@ -68,31 +69,31 @@ xcrun -sdk iphoneos \
 #清除构建的临时文件
 rm -rf $HCBuildDir/temp
 
-# # 单元测试
-# xcodebuild \
-# -workspace $HCWorkspace/$HCProjectName.xcodeproj/project.xcworkspace \
-# -scheme $HCScheme \
-# -sdk "iphonesimulator" \
-# -configuration "Debug" \
-# -destination platform='iOS Simulator',OS=9.3,name='iPhone 6 Plus'
+# 单元测试
+xcodebuild \
+-workspace $HCWorkspace/$HCProjectName.xcodeproj/project.xcworkspace \
+-scheme $HCTestScheme \
+-sdk "iphonesimulator" \
+-configuration "Debug" \
+-destination platform='iOS Simulator',OS=9.3,name='iPhone 6 Plus'
 
-# array=( TestDemoTests )
+array=( TestDemoTests )
 
-# for data in ${array[@]}
-# do 
-#         xcodebuild  -reporter pretty \
-#         -reporter junit:tmp/test-report-tmp.xml \
-#         -workspace $HCWorkspace/$HCProjectName.xcodeproj/project.xcworkspace \
-#         -scheme $HCScheme \
-#         xcrun -only $HCScheme:${data} \
-#         -sdk "iphonesimulator" \
-#         -configuration "Debug" \
-#         -destination platform='iOS Simulator',OS=9.3,name='iPhone 6 Plus'
-# done
+for data in ${array[@]}
+do 
+        xcodebuild  -reporter pretty \
+        -reporter junit:tmp/test-report-tmp.xml \
+        -workspace $HCWorkspace/$HCProjectName.xcodeproj/project.xcworkspace \
+        -scheme $HCScheme \
+        run-tests -only $HCScheme:${data} \
+        -sdk "iphonesimulator" \
+        -configuration "Debug" \
+        -destination platform='iOS Simulator',OS=9.3,name='iPhone 6 Plus'
+done
 
 
 
-open "$HCIpaDir"									#打开SDK文件夹
+# open "$HCIpaDir"									#打开SDK文件夹
 
 
 
