@@ -92,7 +92,7 @@ rm -rf $HCBuildDir/temp
 
 
 
-# open "$HCIpaDir"									#打开SDK文件夹
+open "$HCIpaDir"									#打开SDK文件夹
 
 
 
