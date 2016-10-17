@@ -80,11 +80,11 @@ rm -rf $HCBuildDir/temp
 
 # for data in ${array[@]}
 # do 
-#         xcrun  -reporter pretty \
+#         xcodebuild  -reporter pretty \
 #         -reporter junit:tmp/test-report-tmp.xml \
 #         -workspace $HCWorkspace/$HCProjectName.xcodeproj/project.xcworkspace \
 #         -scheme $HCScheme \
-#         run-tests -only $HCScheme:${data} \
+#         xcrun -only $HCScheme:${data} \
 #         -sdk "iphonesimulator" \
 #         -configuration "Debug" \
 #         -destination platform='iOS Simulator',OS=9.3,name='iPhone 6 Plus'
@@ -92,7 +92,7 @@ rm -rf $HCBuildDir/temp
 
 
 
-open "$HCIpaDir"									#打开SDK文件夹
+# open "$HCIpaDir"									#打开SDK文件夹
 
 
 
