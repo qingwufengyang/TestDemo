@@ -44,7 +44,7 @@ mkdir -p $HCIpaDir
 xcodebuild \
 -workspace $HCWorkspace/$HCProjectName.xcodeproj/project.xcworkspace \
 -scheme $HCScheme \
--configuration "Release" \
+-configuration "Debug" \
 CODE_SIGN_IDENTITY="$HCCodeSignIdentity"  \
 PROVISIONING_PROFILE="$HCProvisioningProFile" \
 clean \
