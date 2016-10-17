@@ -68,31 +68,31 @@ xcrun -sdk iphoneos \
 #清除构建的临时文件
 rm -rf $HCBuildDir/temp
 
-# 单元测试
-xctool build-tests \
--workspace $HCWorkspace/$HCProjectName.xcodeproj/project.xcworkspace \
--scheme $HCScheme \
--sdk "iphonesimulator" \
--configuration "Debug" \
--destination platform='iOS Simulator',OS=9.3,name='iPhone 6 Plus'
+# # 单元测试
+# xcodebuild \
+# -workspace $HCWorkspace/$HCProjectName.xcodeproj/project.xcworkspace \
+# -scheme $HCScheme \
+# -sdk "iphonesimulator" \
+# -configuration "Debug" \
+# -destination platform='iOS Simulator',OS=9.3,name='iPhone 6 Plus'
 
-array=( TestDemoTests )
+# array=( TestDemoTests )
 
-for data in ${array[@]}
-do 
-        xctool  -reporter pretty \
-        -reporter junit:tmp/test-report-tmp.xml \
-        -workspace $HCWorkspace/$HCProjectName.xcodeproj/project.xcworkspace \
-        -scheme $HCScheme \
-        run-tests -only $HCScheme:${data} \
-        -sdk "iphonesimulator" \
-        -configuration "Debug" \
-        -destination platform='iOS Simulator',OS=9.3,name='iPhone 6 Plus'
-done
+# for data in ${array[@]}
+# do 
+#         xcrun  -reporter pretty \
+#         -reporter junit:tmp/test-report-tmp.xml \
+#         -workspace $HCWorkspace/$HCProjectName.xcodeproj/project.xcworkspace \
+#         -scheme $HCScheme \
+#         run-tests -only $HCScheme:${data} \
+#         -sdk "iphonesimulator" \
+#         -configuration "Debug" \
+#         -destination platform='iOS Simulator',OS=9.3,name='iPhone 6 Plus'
+# done
 
 
 
-# open "$HCIpaDir"									#打开SDK文件夹
+open "$HCIpaDir"									#打开SDK文件夹
 
 
 
