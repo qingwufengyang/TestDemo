@@ -41,22 +41,22 @@ mkdir -p $HCIpaDir
 
 
 
-#*********xcode7构建
-xcodebuild \
--workspace $HCWorkspace/$HCProjectName.xcodeproj/project.xcworkspace \
--scheme $HCScheme \
--configuration "Release" \
-CODE_SIGN_IDENTITY="$HCCodeSignIdentity"  \
-PROVISIONING_PROFILE="$HCProvisioningProFile" \
-clean \
-build \
--derivedDataPath $HCBuildTempDir
+# #*********xcode7构建
+# xcodebuild \
+# -workspace $HCWorkspace/$HCProjectName.xcodeproj/project.xcworkspace \
+# -scheme $HCScheme \
+# -configuration "Release" \
+# CODE_SIGN_IDENTITY="$HCCodeSignIdentity"  \
+# PROVISIONING_PROFILE="$HCProvisioningProFile" \
+# clean \
+# build \
+# -derivedDataPath $HCBuildTempDir
 
-#生成ipa
-xcrun -sdk iphoneos \
--v PackageApplication $HCBuildTempDir/Build/Products/$HCConfiguration-iphoneos/$HCProjectName.app \
--o "$HCIpaDir/$HCProjectName-$HCBranchName-$HCDate.ipa"
-#*********xcode7构建结束
+# #生成ipa
+# xcrun -sdk iphoneos \
+# -v PackageApplication $HCBuildTempDir/Build/Products/$HCConfiguration-iphoneos/$HCProjectName.app \
+# -o "$HCIpaDir/$HCProjectName-$HCBranchName-$HCDate.ipa"
+# #*********xcode7构建结束
 
 
 # #**********xcode8构建
@@ -73,7 +73,7 @@ rm -rf $HCBuildDir/temp
 xctool build-tests \
 -workspace $HCWorkspace/$HCProjectName.xcodeproj/project.xcworkspace \
 -scheme $HCTestScheme \
--sdk iphoneos \
+-sdk iphonesimulator \
 -configuration "Debug" \
 -destination platform='iOS Simulator',OS=9.3,name='iPhone 6 Plus'
 
@@ -81,11 +81,11 @@ array=( TestDemoTests )
 
 for data in ${array[@]}
 do 
-        xctool  \
+        xctool  -reporter pretty -reporter junit:tmp/test-report-tmp.xml \
         -workspace $HCWorkspace/$HCProjectName.xcodeproj/project.xcworkspace \
         -scheme $HCTestScheme \
         run-tests -only $HCTestScheme:"TestDemoTests"\
-        -sdk iphoneos \
+        -sdk iphonesimulator \
         -configuration "Debug" \
         -destination platform='iOS Simulator',OS=9.3,name='iPhone 6 Plus'
 done
