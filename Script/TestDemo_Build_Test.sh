@@ -73,7 +73,7 @@ rm -rf $HCBuildDir/temp
 xctool build-tests \
 -workspace $HCWorkspace/$HCProjectName.xcodeproj/project.xcworkspace \
 -scheme $HCTestScheme \
--sdk iphonesimulator \
+# -sdk iphonesimulator \
 -configuration "Debug" \
 -destination platform='iOS Simulator',OS=9.3,name='iPhone 6 Plus'
 
@@ -85,7 +85,7 @@ do
         -workspace $HCWorkspace/$HCProjectName.xcodeproj/project.xcworkspace \
         -scheme $HCTestScheme \
         run-tests -only $HCTestScheme:"TestDemoTests"\
-        -sdk iphonesimulator \
+        # -sdk iphonesimulator \
         -configuration "Debug" \
         -destination platform='iOS Simulator',OS=9.3,name='iPhone 6 Plus'
 done
