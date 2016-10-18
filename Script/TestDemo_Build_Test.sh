@@ -85,7 +85,7 @@ do
         -workspace $HCWorkspace/$HCProjectName.xcodeproj/project.xcworkspace \
         -scheme $HCTestScheme \
         run-tests -only $HCTestScheme:${data}\
-        -sdk iphonesimulator \
+        -sdk iphonesimulator9.3 \
         -configuration "Debug" \
         -destination platform='iOS Simulator',OS=9.3,name='iPhone 6'
 done
