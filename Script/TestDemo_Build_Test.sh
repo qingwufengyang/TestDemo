@@ -74,7 +74,7 @@ echo "$HCTestScheme---------------------"
 # 单元测试
 xctool clean build-tests \
 -workspace $HCWorkspace/$HCProjectName.xcodeproj/project.xcworkspace \
--scheme $HCTestScheme \
+-scheme $HCScheme \
 -sdk iphonesimulator9.3 \
 
 array=( TestDemoTests )
