@@ -13,7 +13,7 @@ HCConfiguration="Release"
 #*****--------------------
 
 
-拉代码
+#拉代码
 git reset --hard 										#清除未提交的改变
 git pull origin $HCBranchName							#拉代码
 git checkout $HCBranchName								#切分支
