@@ -71,24 +71,32 @@ rm -rf $HCBuildDir/temp
 
 echo "$HCTestScheme---------------------"
 
-# 单元测试
-xctool clean build-tests \
--workspace $HCWorkspace/$HCProjectName.xcodeproj/project.xcworkspace \
+xcodebuild clean test \
+-workspace $HCWorkspaceFile \
 -scheme $HCScheme \
 -sdk iphonesimulator9.3 \
+-configuration "Debug" \
+-destination platform='iOS Simulator',name='iPhone 5s'
 
-array=( TestDemoTests )
 
-for data in ${array}
-do 
-        xctool  \
-        -workspace $HCWorkspace/$HCProjectName.xcodeproj/project.xcworkspace \
-        -scheme $HCTestScheme \
-        run-tests -only $HCTestScheme:${data}\
-        -sdk iphonesimulator9.3 \
-        -configuration "Debug" \
-        -destination platform='iOS Simulator',OS=9.3,name='iPhone 6'
-done
+## 单元测试
+#xctool clean build-tests \
+#-workspace $HCWorkspace/$HCProjectName.xcodeproj/project.xcworkspace \
+#-scheme $HCScheme \
+#-sdk iphonesimulator9.3 \
+#
+#array=( TestDemoTests )
+#
+#for data in ${array}
+#do 
+#        xctool  \
+#        -workspace $HCWorkspace/$HCProjectName.xcodeproj/project.xcworkspace \
+#        -scheme $HCTestScheme \
+#        run-tests -only $HCTestScheme:${data}\
+#        -sdk iphonesimulator9.3 \
+#        -configuration "Debug" \
+#        -destination platform='iOS Simulator',OS=9.3,name='iPhone 6'
+#done
 
 
 
