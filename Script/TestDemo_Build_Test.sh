@@ -5,7 +5,7 @@
 #***********配置项
 HCProjectName="TestDemo"			
 HCScheme="TestDemo"
-HCTestScheme="TestDemoTests"
+#HCTestScheme="TestDemoTests"
 HCBranchName="master"
 HCCodeSignIdentity="iPhone Developer: nannan ji (8W2YJ2NKMC)"
 HCProvisioningProFile="af34fd65-a148-43d7-821c-0bc0404e19bd"
