@@ -7,8 +7,8 @@ HCProjectName="TestDemo"
 HCScheme="TestDemo"
 HCTestScheme="TestDemoAutoTests"
 #HCBranchName="master"
-#HCCodeSignIdentity="iPhone Developer: nannan ji (8W2YJ2NKMC)"
-#HCProvisioningProFile="af34fd65-a148-43d7-821c-0bc0404e19bd"
+HCCodeSignIdentity="iPhone Developer: nannan ji (8W2YJ2NKMC)"
+HCProvisioningProFile="af34fd65-a148-43d7-821c-0bc0404e19bd"
 #HCConfiguration="Release"
 #*****--------------------
 
@@ -24,9 +24,22 @@ echo "$HCTestScheme---------------------"
 xcodebuild clean test \
 -workspace $HCWorkspaceFile \
 -scheme $HCScheme \
--sdk iphonesimulator9.3 \
 -configuration "Debug" \
+-sdk iphonesimulator \
 -destination platform='iOS Simulator',name='iPhone 5s'
+
+#真机
+# xcodebuild clean test \
+# -workspace $HCWorkspaceFile \
+# -scheme $HCScheme \
+# -configuration "Debug" \
+# -sdk iphoneos \
+# CODE_SIGN_IDENTITY="$HCCodeSignIdentity"  \
+# PROVISIONING_PROFILE="$HCProvisioningProFile" \
+# -destination platform='iOS',name='陈俊俊'
+
+
+# -only-testing:TestDemoAutoTests \
 
 #xctool clean build-tests \
 #-workspace $HCWorkspaceFile \

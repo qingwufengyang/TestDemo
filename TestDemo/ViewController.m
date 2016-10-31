@@ -20,6 +20,7 @@
     UILabel *testLabel = [[UILabel alloc]initWithFrame:CGRectMake(100, 100, 100, 100)];
     testLabel.text = @"测试";
     [self.view addSubview:testLabel];
+    NSLog(@"Dev1.0");
 }
 
 - (void)didReceiveMemoryWarning {
