@@ -22,6 +22,7 @@
     testLabel.backgroundColor = [UIColor blueColor];
     [self.view addSubview:testLabel];
     NSLog(@"Dev1.0");
+    NSLog(@"Dev1.2");
     
 }
 
