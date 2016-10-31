@@ -19,8 +19,10 @@
     self.view.backgroundColor = [UIColor redColor];
     UILabel *testLabel = [[UILabel alloc]initWithFrame:CGRectMake(100, 100, 100, 100)];
     testLabel.text = @"测试";
+    testLabel.backgroundColor = [UIColor blueColor];
     [self.view addSubview:testLabel];
     NSLog(@"Dev1.0");
+    
 }
 
 - (void)didReceiveMemoryWarning {
