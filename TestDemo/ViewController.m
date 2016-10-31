@@ -22,7 +22,6 @@
     testLabel.backgroundColor = [UIColor blueColor];
     [self.view addSubview:testLabel];
     NSLog(@"Dev1.0");
-    NSLog(@"最新测试");
 }
 
 - (void)didReceiveMemoryWarning {
